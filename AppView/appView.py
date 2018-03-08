@@ -94,6 +94,8 @@ class View:
             Date: 03/05/2018
 
             Displays search menu for Zendesk Ticket Viewer App
+
+            type: ticket_list: list[ticket]
         '''
         print("Type a ticket id between 1 and {0}.\n".format(len(ticket_list)))
         print("Type your choice here: \n")
@@ -118,16 +120,6 @@ class View:
         print("Type 'menu' to see a list of options.\n")
         print("Type 'exit to exit the process. \n")
     
-    def display_ticket_with_search_menu(self,ticket,ticket_list):
-        '''
-            Author: Kyle Ong
-            Date: 03/08/2018
-
-            Displays an indviudal ticket from ticket_list and displays the ticket_search_menu for the Zendesk Ticket Viewer Application 
-
-        '''
-        self.display_ticket(ticket,ticket_list)
-        self.display_search_menu(ticket_list)
 
     def display_ticket_list(self, current_page,num_pages, paginated_ticket_list):
         '''
@@ -135,6 +127,10 @@ class View:
             Date: 03/05/3018
 
             Displays a paginated list of tickets for the Zendesk Ticket Viewer App
+
+            type: current_page: int
+            type: num_pages: int
+            type: paginated_ticket_list: list[ticket]
 
          '''
         print("------------------------------------ View ------------------------------------\n")

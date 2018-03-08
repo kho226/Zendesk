@@ -17,8 +17,8 @@
 
         get_ticket()
         get_all_tickets()
-        calculate_pages()
-        get_paginated_tickets()
+        calculate_num_pages()
+        paginate_tickets()
         
     https://developer.zendesk.com/rest_api/docs/core/tickets#content
 '''
@@ -52,7 +52,6 @@ class Model:
 
     def get_all_tickets(self):
         self.url = "https://{0}.zendesk.com/api/v2/tickets.json".format(self.org)
-        print (self.url)
         if (self.ticket_list is None or not self.ticket_list):
             while self.url:
                 try:
