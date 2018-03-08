@@ -33,7 +33,7 @@ class View:
 
             Displays welcome message for Zendesk Ticket Viewer App
         '''
-        print("------------------------------------ Zendesk Ticket Viewer------------------------------------\n")
+        self.display_header("Zendesk Ticket Viewer")
         print("1.) Type 'View' to view a list of tickets\n" )
         print("2.) Type 'Search' to search for an individual ticket by id. \n")
         print("3.) Type 'exit' to exit the process. \n")
@@ -47,7 +47,7 @@ class View:
 
             Displays the menu for Zendesk Ticket Viewer App
         '''
-        print("------------------------------------ Menu------------------------------------\n")
+        self.display_header("menu")
         print("1.) Type 'view' to view a list of tickets\n" )
         print("2.) Type 'search' to search for an individual ticket by id. \n")
         print("3.) Type 'exit' to search exit the process. \n")
@@ -97,6 +97,7 @@ class View:
 
             type: ticket_list: list[ticket]
         '''
+        self.display_header("search")
         print("Type a ticket id between 1 and {0}.\n".format(len(ticket_list)))
         print("Type your choice here: \n")
 
@@ -107,15 +108,27 @@ class View:
 
             Displays an individual ticket from ticket_list for the Zendesk Ticket Viewer App
         '''
+
         data = ticket['ticket'];
         id = data['id']
         status = data['status']
+        priority =  data['priority']
         description = data['description']
         subject = data['subject']
+        author = data['requester_id']
+        created_at = data['created_at']
+        assignee = data['assignee_id']
+        submitter = data['submitter_id']
+
    
-        print("------------------------------------ Search ------------------------------------\n")
-        print("Ticket ID:{0}\n".format(id))
-        print("Status:{0}\n".format(status))
+        self.display_header("ticket: {0}".format(id))
+        print("Created At: {0}\n".format(created_at))
+        print("Ticket ID: {0}\n".format(id))
+        print("Submitted By: {0}\n".format(submitter))
+        print("Requested By: {0}\n".format(author))
+        print("Assigned To: {0}\n".format(assignee))
+        print("Priority: {0}\n".format(priority))
+        print("Status: {0}\n".format(status))
         print("Description:\n{0}\n".format(description)) 
         print("Type 'menu' to see a list of options.\n")
         print("Type 'exit to exit the process. \n")
@@ -133,16 +146,28 @@ class View:
             type: paginated_ticket_list: list[ticket]
 
          '''
-        print("------------------------------------ View ------------------------------------\n")
         for ticket in paginated_ticket_list:
-            id = ticket['id']
-            status = ticket['status']
-            subject = ticket['subject']
-            description = ticket['description']
 
-            print("Ticket ID:{0}\n".format(id))
-            print("Subject:{0}\n".format(subject))
-            print("Status:{0}\n".format(status))
+            id = ticket['id']
+            
+            self.display_header("Ticket:{0}".format(id))
+
+            status = ticket['status']
+            priority =  ticket['priority']
+            description = ticket['description']
+            subject = ticket['subject']
+            author = ticket['requester_id']
+            created_at = ticket['created_at']
+            assignee = ticket['assignee_id']
+            submitter = ticket['submitter_id']
+
+            print("Created At: {0}\n".format(created_at))
+            print("Ticket ID: {0}\n".format(id))
+            print("Submitted By: {0}\n".format(submitter))
+            print("Requested By: {0}\n".format(author))
+            print("Assigned To: {0}\n".format(assignee))
+            print("Priority: {0}\n".format(priority))
+            print("Status: {0}\n".format(status))
             print("Description:\n{0}\n".format(description)) 
 
         print("Page {0} / {1}\n".format(current_page,num_pages))
@@ -155,10 +180,18 @@ class View:
             Displays the menu for viewing a list of tickets for Zendesk Ticket Viewer App
 
         '''
+        self.display_header("menu")
         print("Type 'previous' to see the previous page.\n")
         print("Type 'next' to see the next page.\n" )
         print("Type 'menu' to see a list of options.\n")
         print("Type 'exit' to exit the process. \n")
 
 
-        
+    def display_header(self,text):
+        '''
+            Author: Kyle Ong
+            Date: 03/08/2018
+
+            Displays header for Zendesk Ticket Viewer App
+        '''
+        print("------------------------------------ {0} ------------------------------------\n".format(text))
