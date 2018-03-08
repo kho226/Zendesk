@@ -17,19 +17,18 @@
 
 ## Installation (macOS Sierra Version 10.12.1)
 ```
-sudo apt-get install python3-pip
-sudo pip3 install virtualenv
+sudo easy_install pip
+sudo pip install virtualenv
 git clone https://github.com/kho226/Zendesk
 cd <project_path>
-virtualenv --python=/usr/bin/python3.5.2 venv
+virtualenv venv
 source venv/bin/activate
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Start process
 ```
-cd <project_path>
-cd Controller
+cd AppController
 python appController.py
 ```
 ## Tests
