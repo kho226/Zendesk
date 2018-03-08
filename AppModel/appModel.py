@@ -27,9 +27,9 @@ import requests
 
 class Model:
     def __init__(self):
-        self.org = ""
-        self.user_name = ""
-        self.password = ""
+        self.org = "kyleong"
+        self.user_name = "kho226@nyu.edu"
+        self.password = "password"
         self.url = ""
         self.ticket = []
         self.ticket_list = []
@@ -52,6 +52,7 @@ class Model:
 
     def get_all_tickets(self):
         self.url = "https://{0}.zendesk.com/api/v2/tickets.json".format(self.org)
+        print (self.url)
         if (self.ticket_list is None or not self.ticket_list):
             while self.url:
                 try:

@@ -142,8 +142,10 @@ class View:
             id = ticket['id']
             status = ticket['status']
             subject = ticket['subject']
+            description = ticket['description']
 
             print("Ticket ID:{0}\n".format(id))
+            print("Subject:{0}\n".format(subject))
             print("Status:{0}\n".format(status))
             print("Description:\n{0}\n".format(description)) 
 
