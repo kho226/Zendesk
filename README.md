@@ -1,10 +1,10 @@
-#Zendesk Ticket Viewer CLI
+# Zendesk Ticket Viewer CLI
 
-##Featuers
+## Featuers
 > search for single ticket
 > view paginated tickets
 
-##To-do
+## To-do
 - [x] Model
 - [x] View
 - [x] Controller
@@ -15,7 +15,7 @@
 - []  Circular Pagination
 
  
-##Requirements
+## Requirements
 > python==3.5.2
 > certifi==2018.1.18
 > chardet==3.0.4
@@ -33,7 +33,7 @@
 > six==1.11.0
 > urllib3==1.22
 
-##Installation
+## Installation
 ```
 python -m pip install --user virtualenv
 git clone https://github.com/kho226/Zendesk
@@ -43,14 +43,14 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-##Start process
+## Start process
 ```
 cd <project_path>
 cd Controller
 python appController.py
 ```
 
-##Tests
+## Tests
 ```
 cd <project_path>
 cd Tests
@@ -58,5 +58,5 @@ python unitTests.py
 ```
 
 
-##References
+## References
 > https://developer.zendesk.com/rest_api/docs/core/tickets#content
